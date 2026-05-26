@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sonsuza Dek Evet! 💖</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Arka planda yüzen kalpler -->
+    <div class="heart-bg" id="heart-bg"></div>
+
+    <div class="container">
+        <main class="card">
+            <div class="gif-container">
+                <video autoplay loop muted playsinline>
+                    <source src="beniki.mp4" type="video/mp4">
+                    Tarayıcınız bu videoyu desteklemiyor.
+                </video>
+            </div>
+            <h1>Biliyordum! 🥰</h1>
+                        <p class="message">Ben de seni çok ama çok seviyorum! ❤️</p>
+            <p class="message">İyi ki hayatımdasın, hayatımın anlamı! 💖</p>
+            <div class="buttons">
+                <button class="btn btn-back" onclick="window.location.href='index.html'">Geri Dön</button>
+            </div>
+        </main>
+    </div>
+
+    <script>
+        // Arka plandaki yüzen kalpleri oluşturma fonksiyonu (yes.html için script.js'ten bağımsız çalışabilir)
+        const heartBg = document.getElementById('heart-bg');
+        const heartSymbols = ['❤️', '💖', '💝', '💕', '💗'];
+        
+        function createHeart() {
+            const heart = document.createElement('div');
+            heart.classList.add('heart');
+            heart.innerText = heartSymbols[Math.floor(Math.random() * heartSymbols.length)];
+            heart.style.left = Math.random() * 100 + 'vw';
+            heart.style.animationDuration = (Math.random() * 3 + 5) + 's';
+            heart.style.fontSize = (Math.random() * 15 + 15) + 'px';
+            heartBg.appendChild(heart);
+            
+            setTimeout(() => {
+                heart.remove();
+            }, 8000);
+        }
+        
+        // İlk kalpleri oluştur
+        for(let i = 0; i < 15; i++) {
+            setTimeout(createHeart, Math.random() * 5000);
+        }
+        
+        // Sürekli kalp oluştur
+        setInterval(createHeart, 400);
+    </script>
+</body>
+</html>
